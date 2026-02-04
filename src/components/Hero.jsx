@@ -1,8 +1,12 @@
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { codeExamples, floatingCards } from "../data/codeExamples";
+import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [activeTab, setActiveTab] = useState("App.jsx"); // key for active tab
 
   useEffect(() => {
     function handleMouseMove(e) {
@@ -27,6 +31,7 @@ export default function Hero() {
       <div className="absolute top-20 left-4 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-20 right-4 sm:right-10 w-64 sm:w-96 h-64 sm:h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
+      {/* right side || AI Coding */}
       <div className="relative order-2 w-full">
         <div className="relative bg-white/5 backdrop-blur-x3 rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-2xl border border-white/10">
           <div className="bg-gradient-to-br from-gray-900/20 to-gray-800/20 backdrop-blur-sm rounded-lg overflow-hidden h-[280px] sm:w-[350px] lg:h-[450px] border border-white/5">
@@ -40,10 +45,78 @@ export default function Hero() {
                   <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500"></div>
                 </div>
 
-                <span className="text-xs sm:text-sm text-gray-300">CodeFlow AI</span>
+                <span className="text-xs sm:text-sm text-gray-300">
+                  CodeFlow AI
+                </span>
               </div>
-              
+
               <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
+            </div>
+
+            <div className="p-3 sm:p-4 relative h-full">
+              {/* file tabs */}
+              <div className="flex space-x-1 sm:space-x-2 mb-3 sm:mb-4 overflow-x-auto">
+                <button
+                  onClick={() => setActiveTab("App.jsx")}
+                  className={`px-3 py-2 backdrop-blur-sm tex-xs sm:text-sm rounded-t-lg border ${activeTab === "App.jsx" ? "bg-blue-500/30 text-white border-blue-400/20" : "bg-white/5 text-gray-300 border-white/10 hover:bg-white/10"} transition-all duration-200 whitespace-nowrap cursor-pointer`}
+                >
+                  App.jsx
+                </button>
+                <button
+                  onClick={() => setActiveTab("Hero.jsx")}
+                  className={`px-3 py-2 backdrop-blur-sm tex-xs sm:text-sm rounded-t-lg border ${activeTab === "Hero.jsx" ? "bg-blue-500/30 text-white border-blue-400/20" : "bg-white/5 text-gray-300 border-white/10 hover:bg-white/10"} transition-all duration-200 whitespace-nowrap cursor-pointer`}
+                >
+                  Hero.jsx
+                </button>
+                <button
+                  onClick={() => setActiveTab("Navbar.jsx")}
+                  className={`px-3 py-2 backdrop-blur-sm tex-xs sm:text-sm rounded-t-lg border ${activeTab === "Navbar.jsx" ? "bg-blue-500/30 text-white border-blue-400/20" : "bg-white/5 text-gray-300 border-white/10 hover:bg-white/10"} transition-all duration-200 whitespace-nowrap cursor-pointer`}
+                >
+                  Navbar.jsx
+                </button>
+              </div>
+
+              {/* code content */}
+              <div className="relative overflow-hidden flex-grow">
+                <SyntaxHighlighter
+                  language="javascript"
+                  style={nightOwl}
+                  customStyle={{
+                    margin: 0,
+                    borderRadius: "8px",
+                    fontSize: "11px",
+                    lineHeight: "1.4",
+                    height: "100%",
+                    border: "1px solid #3c3c3c",
+                    overflow: "hidden",
+                  }}
+                >
+                  {codeExamples[activeTab]}
+                </SyntaxHighlighter>
+              </div>
+            </div>
+          </div>
+
+          {/* floating cards */}
+          <div
+            className={`hidden lg:block absolute bottom-4 right-4 transform translate-x-8 translate-y-8 w-72 ${floatingCards[activeTab].bgColor} backdrop-blur-xl rounded-lg p-4 border border-white/20 shadow-2xl`}
+          >
+            <div className="flex items-center space-x-2 mb-2">
+              <div
+                className={`w-6 h-6 ${floatingCards[activeTab].iconColor} flex items-center justify-center text-sm font-bold`}
+              >
+                {floatingCards[activeTab].icon}
+              </div>
+              <span
+                className={`text-sm font-medium ${floatingCards[activeTab].textColor}`}
+              >
+                {floatingCards[activeTab].title}
+              </span>
+            </div>
+            <div
+              className={`text-sm text-left ${floatingCards[activeTab].contentColor}`}
+            >
+              {floatingCards[activeTab].content}
             </div>
           </div>
         </div>
