@@ -115,7 +115,7 @@ export default function Hero() {
                   </div>
 
                   {/* code content */}
-                  <div className="relative overflow-hidden flex-grow">
+                  <div className="relative overflow-hidden flex-row">
                     <SyntaxHighlighter
                       language="javascript"
                       style={nightOwl}
@@ -127,6 +127,7 @@ export default function Hero() {
                         height: "100%",
                         border: "1px solid #3c3c3c",
                         overflow: "hidden",
+                        textAlign: "left"
                       }}
                     >
                       {codeExamples[activeTab]}
