@@ -74,7 +74,7 @@ export const floatingCards = {
     title: "Auto Animation",
     content: "Dynamic typing effects generating automatically.",
   },
-    "Navbar.jsx": {
+  "Navbar.jsx": {
     bgColor: "bg-emerald-500/20",
     iconColor: "text-emerald-400",
     textColor: "text-emerald-200",
@@ -84,3 +84,42 @@ export const floatingCards = {
     content: "Intelligent code search across your project.",
   },
 };
+
+export const features = [
+  {
+    title: "AI Code Completion",
+    description:
+      "Integrate AI-powered code completion to boost developer productivity. Get intelligent suggestions and auto-complete code snippets in real-time.",
+    codeSnippet: `
+function handleSubmit(){
+  // AI Suggests next line
+  const data = await fetch("/api/submit")
+  // Auto-completed by AI
+}`,
+    codePositions: "left",
+  },
+  {
+    title: "Automated Testing",
+    description:
+      "Implement AI-driven automated testing to ensure code quality and reliability. Generate test cases and identify potential issues before deployment.",
+    codeSnippet: `
+function handleSubmit(){
+  // AI Suggests next line
+  const data = await fetch("/api/submit")
+  // Auto-completed by AI
+}`,
+    codePositions: "right",
+  },
+  {
+    title: "Smart Debugging",
+    description:
+      "Utilize AI to identify and fix bugs quickly and efficiently. Improve debugging processes with intelligent suggestions.",
+    codeSnippet: `
+function handleSubmit(){
+  // AI Suggests next line
+  const data = await fetch("/api/submit")
+  // Auto-completed by AI
+}`,
+    codePositions: "left",
+  },
+];
