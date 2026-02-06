@@ -25,7 +25,7 @@ export default function Features() {
           {features.map((feature, key) => (
             <div
               key={key}
-              className={`flex flex-col lg:flex-row items-center gap-8 sm:gap-12 ${feature.codePositions === "right" ? "lg:flex-row-reverse" : ""}`}
+              className={`flex flex-col md:flex-row items-center w-full gap-8 sm:gap-12 ${feature.codePositions === "right" ? "md:flex-row-reverse" : ""}`}
             >
               {/* code section */}
               <div className="flex-1 w-full">
@@ -72,10 +72,10 @@ export default function Features() {
               </div>
 
               {/* text section */}
-              <div className="flex-1 w-full">
+              <div className="flex-1 w-full mb-4 sm:mb-6">
                 <div className="max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
                   <h3 className="text-4xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-white">{feature.title}</h3>
-                  <p className="text-gray-300 text-base text-xl sm:text-lg leading-relaxed">{feature.description}</p>
+                  <p className="text-gray-300 text-base sm:text-lg leading-relaxed">{feature.description}</p>
                 </div>
               </div>
             </div>

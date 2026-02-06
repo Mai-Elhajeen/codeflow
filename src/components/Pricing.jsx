@@ -19,7 +19,7 @@ export default function Pricing() {
               Pricing Plans
             </span>
           </h2>
-          <p className="text-gray-400 text-base text-xl sm:text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
             Choose the perfect plan for your needs. All plans include a 14-day
             free trail.
           </p>

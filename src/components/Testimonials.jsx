@@ -13,7 +13,7 @@ export default function Testimonials() {
             <h2 className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
               what developers are saying about us
             </h2>
-            <p className="text-gray-400 text-base text-xl sm:text-lg max-w-2xl mx-auto">
+            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
               Everything you need to build, test, and deploy applications with
               AI-powered development tools.
             </p>
