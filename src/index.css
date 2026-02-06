@@ -29,6 +29,9 @@
     .delay-300 {
         animation-delay: 100ms;
     }
+    html {
+        scroll-behavior: smooth;
+    }
 }
 
 @keyframes slideInFromBottom {
